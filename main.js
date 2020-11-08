@@ -16,6 +16,15 @@ const admin_userids = [
                     186471006574084096   //Curia
                 ];
 
+const maker_names = [
+                    "aeboards",
+                    "idyllic",
+                    "iveryboards",
+                    "xelus",
+                    "laserninja",
+                    "mechamaker"
+                    ];
+
 const emoji_id = [
                     "702392230958071829",       //aeboards
                     "702713937489297428",       //idyllic
@@ -84,8 +93,14 @@ client.on('message', async message => {
             case "reactions":
                 let embed = new Discord.MessageEmbed();
                 embed.setTitle("Reaction Roles");
-                embed.setDescription("React to gain the role!\nAEBoards: :aeboards:\nIdyllic: :idyllic:\nIvery Designs: :ivery:\nXelus: \nLaser Ninja: :laserninja:\nMechaMaker: :mechamaker:");
-                embed.setColor("Green");
+                var string = "To get the latest updates with the vendor you wish to follow just react to gain the role!\nThe vendor will ping the role when they wish to share any news.\n";
+                for (i = 0; i < maker_names.length; i++) {
+                    string += "<" + maker_names[i] + ":" + emoji_id[i] + ">";   //emoji
+                    string += " : " + maker_names[i];
+                    string += "\n";
+                }
+                embed.setDescription(string);
+                embed.setColor("GREEN");
                 let msgEmbed = await message.channel.send(embed);
                 for(i = 0; i < emoji_id.length; i++) {
                     msgEmbed.react(emoji_id[i]);
