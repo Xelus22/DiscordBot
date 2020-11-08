@@ -95,7 +95,7 @@ client.on('message', async message => {
                 embed.setTitle("Reaction Roles");
                 var string = "To get the latest updates with the vendor you wish to follow just react to gain the role!\nThe vendor will ping the role when they wish to share any news.\n";
                 for (i = 0; i < maker_names.length; i++) {
-                    string += "<" + maker_names[i] + ":" + emoji_id[i] + ">";   //emoji
+                    string += "<:" + maker_names[i] + ":" + emoji_id[i] + ">";   //emoji
                     string += " : " + maker_names[i];
                     string += "\n";
                 }
