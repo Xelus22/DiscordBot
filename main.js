@@ -80,8 +80,17 @@ client.on('message', async message => {
                     
                     message.channel.send(prefix + command.name);
                 }
-                
-                break;            
+                break;  
+            case "reactions":
+                let embed = new Discord.MessageEmbed();
+                embed.setTitle("Reaction Roles");
+                embed.setDescription("React to gain the role!\nAEBoards: :aeboards:\nIdyllic: :idyllic:\nIvery Designs: :ivery:\nXelus: \nLaser Ninja: :laserninja:\nMechaMaker: :mechamaker:");
+                embed.setColor("Green");
+                let msgEmbed = await message.channel.send(embed);
+                for(i = 0; i < emoji_id.length; i++) {
+                    msgEmbed.react(emoji_id[i]);
+                }
+                break;
         }
     }
 
@@ -117,16 +126,6 @@ client.on('message', async message => {
             break;
         case "praxis":
             client.commands.get("praxis").execute(message, args);
-            break;
-        case "reactions":
-            let embed = new Discord.MessageEmbed();
-            embed.setTitle("Reaction Roles");
-            embed.setDescription("React to gain the role!\nAEBoards: :aeboards:\nIdyllic: :idyllic:\nIvery Designs: :ivery:\nXelus: \nLaser Ninja: :laserninja:\nMechaMaker: :mechamaker:");
-            embed.setColor("Green");
-            let msgEmbed = await message.channel.send(embed);
-            for(i = 0; i < emoji_id.length; i++) {
-                msgEmbed.react(emoji_id[i]);
-            }
             break;
         
     }
