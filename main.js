@@ -20,30 +20,30 @@ const maker_names = [
                     "aeboards",
                     "idyllic",
                     "iveryboards",
-                    "xelus",
                     "laserninja",
                     "mechamaker",
-                    "switchdoctor"
+                    "switchdoctor",
+                    "xelus"
                     ];
 
 const emoji_id = [
                     "702392230958071829",       //aeboards
                     "702713937489297428",       //idyllic
                     "774641750823534632",       //iveryboards
-                    "702713937489297428",       //xelus
                     "702764814170325082",       //laserninja
                     "774632313660112927",       //mechamaker
-                    "775347990504276050"        //switchdoctor
+                    "775347990504276050",       //switchdoctor
+                    "702713937489297428"        //xelus
                   ];
 
 const role_id = [
                     "774635750557745163",       //aeboards
                     "774635755637047296",       //idyllic
                     "774640146112053253",       //iveryboards
-                    "774640423666188288",       //xelus
                     "774635835550466058",       //laserninja
                     "774636928707461131",       //mechamaker
-                    "775584637782196285"        //switchdoctor
+                    "775584637782196285",       //switchdoctor
+                    "774640423666188288"        //xelus
                   ];
 
 client.commands = new Discord.Collection();
