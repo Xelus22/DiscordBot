@@ -22,7 +22,8 @@ const maker_names = [
                     "iveryboards",
                     "xelus",
                     "laserninja",
-                    "mechamaker"
+                    "mechamaker",
+                    "switchdoctor"
                     ];
 
 const emoji_id = [
@@ -31,7 +32,8 @@ const emoji_id = [
                     "774641750823534632",       //iveryboards
                     "702713937489297428",       //xelus
                     "702764814170325082",       //laserninja
-                    "774632313660112927"        //mechamaker
+                    "774632313660112927",       //mechamaker
+                    "775348027006648354"        //switchdoctor
                   ];
 
 const role_id = [
