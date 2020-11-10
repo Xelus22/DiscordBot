@@ -33,7 +33,7 @@ const emoji_id = [
                     "702713937489297428",       //xelus
                     "702764814170325082",       //laserninja
                     "774632313660112927",       //mechamaker
-                    "775348027006648354"        //switchdoctor
+                    "775347990504276050"        //switchdoctor
                   ];
 
 const role_id = [
@@ -42,7 +42,8 @@ const role_id = [
                     "774640146112053253",       //iveryboards
                     "774640423666188288",       //xelus
                     "774635835550466058",       //laserninja
-                    "774636928707461131"        //mechamaker
+                    "774636928707461131",       //mechamaker
+                    "775584637782196285"        //switchdoctor
                   ];
 
 client.commands = new Discord.Collection();
