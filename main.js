@@ -46,6 +46,8 @@ const role_id = [
                     "774640423666188288"        //xelus
                   ];
 
+const reactRoleChannelID = "757852623608217620";
+
 client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -133,9 +135,6 @@ client.on('message', async message => {
 
     //general
     switch(command) {
-        // case "game":
-        //     message.channel.send("To start the game, try !game in your PM with me!");
-        //     break;
         case "ping":
             client.commands.get("ping").execute(message, args);
             break;
@@ -145,7 +144,10 @@ client.on('message', async message => {
         case "praxis":
             client.commands.get("praxis").execute(message, args);
             break;
-        
+        // case "time":
+        //     client.commands.get("time").execute(message, args);
+        //     break;
+
     }
 });
 
@@ -156,7 +158,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if (user.bot) return;
     if (!reaction.message.guild) return;
 
-    if (reaction.message.channel.id == "702341287537279038") {
+    if (reaction.message.channel.id == reactRoleChannelID) {
         var index = emoji_id.indexOf(reaction.emoji.id);
         if (index != -1) {
             await reaction.message.guild.members.cache.get(user.id).roles.add(role_id[index]).catch(err => console.log(err))
@@ -171,7 +173,7 @@ client.on("messageReactionRemove", async (reaction, user) => {
     if (user.bot) return;
     if (!reaction.message.guild) return;
 
-    if (reaction.message.channel.id == "702341287537279038") {
+    if (reaction.message.channel.id == reactRoleChannelID) {
         var index = emoji_id.indexOf(reaction.emoji.id);
         if (index != -1) {
             await reaction.message.guild.members.cache.get(user.id).roles.remove(role_id[index]).catch(err => console.log(err))
