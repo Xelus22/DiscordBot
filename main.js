@@ -181,4 +181,4 @@ client.on("messageReactionRemove", async (reaction, user) => {
     }
 });
 
-client.login(process.env.token).catch(err => console.log(err));
+client.login(process.env.DISCORD_TOKEN).catch(err => console.log(err));
