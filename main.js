@@ -36,7 +36,7 @@ const emoji_id = [
                     "702764814170325082",       //laserninja
                     "774632313660112927",       //mechamaker
                     "775347990504276050",       //switchdoctor
-                    "702713937489297428"        //xelus
+                    "803888431687925801"        //xelus
                   ];
 
 const role_id = [
