@@ -23,7 +23,7 @@ const maker_names = [
                     "aeboards",
                     "idyllic",
                     "iveryboards",
-                    "laserninja",
+                    //"laserninja",
                     "mechamaker",
                     "switchdoctor",
                     "xelus"
@@ -32,7 +32,7 @@ const maker_names = [
 const emoji_id = [
                     "702392230958071829",       //aeboards
                     "702713937489297428",       //idyllic
-                    "774641750823534632",       //iveryboards
+                    //"774641750823534632",       //iveryboards
                     "702764814170325082",       //laserninja
                     "774632313660112927",       //mechamaker
                     "775347990504276050",       //switchdoctor
@@ -42,12 +42,30 @@ const emoji_id = [
 const role_id = [
                     "774635750557745163",       //aeboards
                     "774635755637047296",       //idyllic
-                    "774640146112053253",       //iveryboards
+                    //"774640146112053253",       //iveryboards
                     "774635835550466058",       //laserninja
                     "774636928707461131",       //mechamaker
                     "775584637782196285",       //switchdoctor
                     "774640423666188288"        //xelus
                   ];
+
+const project_names = [
+    "constellation updates",
+    "ext65 updates",
+    "praxis updates"
+]
+
+const specific_role_id = [
+                    "817263341860159488",       //constellation updates
+                    "817263368834383872",       //ext65 updates
+                    "817263683888480266"        //praxis updates
+]
+
+const specific_role_emoji = [
+    "one",       //constellation updates
+    "two",       //ext65 updates
+    "three"      //praxis updates
+]
 
 const reactRoleChannelID = "757852623608217620";
 
@@ -107,12 +125,23 @@ client.on('message', async message => {
                     string += " : " + maker_names[i];
                     string += "\n";
                 }
+                string += "\n";
+                
+                string += "To get the latest updates for a specific project just react to these!"
+                for (i = 0; i < specific_role_id.length; i++) {
+                    string += "<:" + project_names[i] + ":>";   //emoji
+                    string += " : " + message.guild.roles.get(specific_role_id[i]).name;
+                    string += "\n"
+                }
                 embed.setDescription(string);
                 embed.setColor("GREEN");
                 let msgEmbed = await message.channel.send(embed);
                 for(i = 0; i < emoji_id.length; i++) {
                     msgEmbed.react(emoji_id[i]);
                 }
+                msgEmbed.react('1️⃣');
+                msgEmbed.react('2️⃣');
+                msgEmbed.react('3️⃣');
                 break;
         }
     }
