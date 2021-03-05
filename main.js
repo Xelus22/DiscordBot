@@ -191,44 +191,44 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if (!reaction.message.guild) return;
 
     if (reaction.message.channel.id == reactRoleChannelID) {
-        if (reaction.emoji.name == '1️⃣') {
-            console.log("1");
-            await reaction.message.guild.members.cache.get(user.id).roles.add(specific_role_id[0]).catch(err => console.log(err))
-        } else if (reaction.emoji.name == '2️⃣') {
-            await reaction.message.guild.members.cache.get(user.id).roles.add(specific_role_id[1]).catch(err => console.log(err))
-        } else if (reaction.emoji.name == '3️⃣') {
-            await reaction.message.guild.members.cache.get(user.id).roles.add(specific_role_id[2]).catch(err => console.log(err))
-        } else {
-            var index = emoji_id.indexOf(reaction.emoji.id);
-            if (index != -1) {
-                await reaction.message.guild.members.cache.get(user.id).roles.add(role_id[index]).catch(err => console.log(err))
+        if (reaction.emoji.id == null) {
+            if (reaction.emoji.name == '1️⃣') {
+                await reaction.message.guild.members.cache.get(user.id).roles.add(specific_role_id[0]).catch(err => console.log(err))
+            } else if (reaction.emoji.name == '2️⃣') {
+                await reaction.message.guild.members.cache.get(user.id).roles.add(specific_role_id[1]).catch(err => console.log(err))
+            } else if (reaction.emoji.name == '3️⃣') {
+                await reaction.message.guild.members.cache.get(user.id).roles.add(specific_role_id[2]).catch(err => console.log(err))
+            } else {
+                var index = emoji_id.indexOf(reaction.emoji.id);
+                if (index != -1) {
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(role_id[index]).catch(err => console.log(err))
+                }
             }
         }
+    };
+    
+    client.on("messageReactionRemove", async (reaction, user) => {
+        if (reaction.message.partial) await reaction.message.fetch();
+        if (reaction.partial)  await reaction.fetch();
         
-    }
-});
-
-client.on("messageReactionRemove", async (reaction, user) => {
-    if (reaction.message.partial) await reaction.message.fetch();
-    if (reaction.partial)  await reaction.fetch();
-
-    if (user.bot) return;
-    if (!reaction.message.guild) return;
-
-    if (reaction.message.channel.id == reactRoleChannelID) {
-        if (reaction.emoji.name == '1️⃣') {
-            await reaction.message.guild.members.cache.get(user.id).roles.remove(specific_role_id[0]).catch(err => console.log(err))
-        } else if (reaction.emoji.name == '2️⃣') {
-            await reaction.message.guild.members.cache.get(user.id).roles.remove(specific_role_id[1]).catch(err => console.log(err))
-        } else if (reaction.emoji.name == '3️⃣') {
-            await reaction.message.guild.members.cache.get(user.id).roles.remove(specific_role_id[2]).catch(err => console.log(err))
-        } else {
-            var index = emoji_id.indexOf(reaction.emoji.id);
-            if (index != -1) {
-                await reaction.message.guild.members.cache.get(user.id).roles.remove(role_id[index]).catch(err => console.log(err))
+        if (user.bot) return;
+        if (!reaction.message.guild) return;
+        
+        if (reaction.message.channel.id == reactRoleChannelID) {
+            if (reaction.emoji.id == null) {
+                if (reaction.emoji.name == '1️⃣') {
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(specific_role_id[0]).catch(err => console.log(err))
+                } else if (reaction.emoji.name == '2️⃣') {
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(specific_role_id[1]).catch(err => console.log(err))
+                } else if (reaction.emoji.name == '3️⃣') {
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(specific_role_id[2]).catch(err => console.log(err))
+            } else {
+                var index = emoji_id.indexOf(reaction.emoji.id);
+                if (index != -1) {
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(role_id[index]).catch(err => console.log(err))
+                }
             }
         }
-       
     }
 });
 
