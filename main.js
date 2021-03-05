@@ -129,8 +129,8 @@ client.on('message', async message => {
                 
                 string += "To get the latest updates for a specific project just react to these!"
                 for (i = 0; i < specific_role_id.length; i++) {
-                    string += "<:" + project_names[i] + ":>";   //emoji
-                    string += " : " + message.guild.roles.get(specific_role_id[i]).name;
+                    string += ":" + specific_role_emoji[i] + ":";   //emoji
+                    string += " : " + project_nmaes[i];
                     string += "\n"
                 }
                 embed.setDescription(string);
