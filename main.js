@@ -26,6 +26,7 @@ const maker_names = [
                     //"laserninja",
                     "mechamaker",
                     "switchdoctor",
+                    "wkeys",
                     "xelus"
                     ];
 
@@ -36,6 +37,7 @@ const emoji_id = [
                     //"702764814170325082",       //laserninja
                     "774632313660112927",       //mechamaker
                     "775347990504276050",       //switchdoctor
+                    "817329480255275059",       //wkeys
                     "803888431687925801"        //xelus
                   ];
 
@@ -46,28 +48,32 @@ const role_id = [
                     //"774635835550466058",       //laserninja
                     "774636928707461131",       //mechamaker
                     "775584637782196285",       //switchdoctor
+                    "817329802737352714",       //wkeys
                     "774640423666188288"        //xelus
                   ];
 
 const project_names = [
     "constellation updates",
     "ext65 updates",
-    "praxis updates"
+    "praxis updates",
+    "coffee updates"
 ]
 
 const specific_role_id = [
                     "817263341860159488",       //constellation updates
                     "817263368834383872",       //ext65 updates
-                    "817263683888480266"        //praxis updates
+                    "817263683888480266",       //praxis updates
+                    "817331636131725325"        //coffee updates
 ]
 
 const specific_role_emoji = [
     "one",       //constellation updates
     "two",       //ext65 updates
-    "three"      //praxis updates
+    "three",      //praxis updates
+    "coffee"     //coffee updates
 ]
 
-const reactRoleChannelID = "757852623608217620";
+const reactRoleChannelID = "817264240926523432";
 
 client.commands = new Discord.Collection();
 
@@ -151,6 +157,7 @@ client.on('message', async message => {
                 msgEmbed.react('1️⃣');
                 msgEmbed.react('2️⃣');
                 msgEmbed.react('3️⃣');
+                msgEmbed.react('☕');
                 break;
         }
     }
@@ -208,6 +215,8 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 await reaction.message.guild.members.cache.get(user.id).roles.add(specific_role_id[1]).catch(err => console.log(err))
             } else if (reaction.emoji.name == '3️⃣') {
                 await reaction.message.guild.members.cache.get(user.id).roles.add(specific_role_id[2]).catch(err => console.log(err))
+            } else if (reaction.emoji.name == '☕') {
+                await reaction.message.guild.members.cache.get(user.id).roles.add(specific_role_id[3]).catch(err => console.log(err))
             }
         } else {
             var index = emoji_id.indexOf(reaction.emoji.id);
@@ -234,6 +243,8 @@ client.on("messageReactionRemove", async (reaction, user) => {
                 await reaction.message.guild.members.cache.get(user.id).roles.remove(specific_role_id[1]).catch(err => console.log(err))
             } else if (reaction.emoji.name == '3️⃣') {
                 await reaction.message.guild.members.cache.get(user.id).roles.remove(specific_role_id[2]).catch(err => console.log(err))
+            } else if (reaction.emoji.name == '☕') {
+                await reaction.message.guild.members.cache.get(user.id).roles.remove(specific_role_id[3]).catch(err => console.log(err))
             }
         } else {
             var index = emoji_id.indexOf(reaction.emoji.id);
