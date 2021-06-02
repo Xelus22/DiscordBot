@@ -158,6 +158,7 @@ client.on('message', async message => {
                 msgEmbed.react('2️⃣');
                 msgEmbed.react('3️⃣');
                 msgEmbed.react('☕');
+                msgEmbed.react(849548004532027393);
                 break;
         }
     }
