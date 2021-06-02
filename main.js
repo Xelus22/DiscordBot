@@ -133,6 +133,15 @@ client.on('message', async message => {
                     string += " : " + project_names[i];
                     string += "\n"
                 }
+                string += "\n";
+                
+                //twitch
+                string += "For other miscellaneous roles please use these!\n"
+                string += "<:stream:849548004532027393>";
+                string += " : AEBoards stream updates";
+                string += "\n"
+                
+
                 embed.setDescription(string);
                 embed.setColor("GREEN");
                 let msgEmbed = await message.channel.send(embed);
